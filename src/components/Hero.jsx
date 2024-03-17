@@ -8,7 +8,6 @@ function Hero() {
     <div className='h-10 w-full flex text-white '>
         <Profile/>
         <Display/>
-        <Remote/>
     </div>
   )
 }

@@ -50,41 +50,57 @@ function Display() {
   };
 
   return (
-    <div className="w-2/4 bg-[#000000] h-screen flex flex-col p-4">
-      <div className='h-1/4 flex flex-col items-start justify-end p-4 m-3'>
-        <div className='my-7'>
-            <span className='text-4xl font-semibold'>Welcome Admins</span>
+    <div className="w-3/4 bg-[#000000] h-screen flex ">
+      <div className=' w-2/3 p-4'>
+        <div className='h-1/4 flex flex-col items-start justify-end p-4 m-3'>
+          <div className='my-7'>
+              <span className='text-4xl font-semibold'>Welcome Admins</span>
+          </div>
+          <div className='flex gap-2'>
+            <Cloud />Date: {currentDate}
+          </div>
         </div>
-        <div className='flex gap-2'>
-          <Cloud />Date: {currentDate}
-        </div>
-      </div>
 
-      <div className='h-2/6 font-semibold text-lg'>
-        <span>Overview</span>
-        <div className='h-1/4'>
-          {weatherData && (
-            <div>
-              <span>Weather: {weatherData.weather}</span>
-              <span>Temperature: {weatherData.temperature}</span>
-              {/* Add more weather data fields as needed */}
+        <div className='h-2/6 font-semibold text-lg'>
+          <span>Overview</span>
+          {/* <div className='h-1/4'>
+            {weatherData && (
+              <div>
+                <span>Weather: {weatherData.sunrise}</span>
+                <span>Temperature: {weatherData.temp}</span>
+              </div>
+            )}
+            {!weatherData && <span>Loading weather data...</span>}
+          </div> */}
+          <div className='flex gap-2 pt-5 h-[150px] px-4'>
+            <div className='w-1/3 border-2 rounded-full flex flex-col items-center justify-center p-3'>
+              <span>Devices connected</span>
+              <span className='font-bold text-5xl'>4</span>
             </div>
-          )}
-          {!weatherData && <span>Loading weather data...</span>}
+            <div className='w-2/3 border-2 rounded-full bg-[#98fb98]'></div>
+          </div>
+        </div>
+
+        <div className='h-1/6'>
+          <span className=' text-lg pb-5'>Devices</span>
+          <div className='pt-5 flex gap-1'>
+            {devices.map((device, index) => (
+              <motion.div key={index} className="bg-black w-1/2 p-4 rounded-lg border-2 h-[200px] " 
+              whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.1 },
+              }}
+              whileTap={{ scale: 0.9 }}>
+                <h2 className="text-lg font-semibold">{device.device}</h2>
+                <p>{device.description}</p>
+                {/* Add more details as needed */}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className='h-1/6'>
-        <span>Devices</span>
-        <div className='flex gap-1'>
-          {devices.map((device, index) => (
-            <motion.div key={index} className="w-1/2 p-4 rounded-lg border-2 h-[200px]">
-              <h2 className="text-lg font-semibold">{device.device}</h2>
-              <p>{device.description}</p>
-              {/* Add more details as needed */}
-            </motion.div>
-          ))}
-        </div>
+      <div className='w-1/3 bg-[#000000e4] h-screen p-2 '>
+          hi
       </div>
     </div>
   );
