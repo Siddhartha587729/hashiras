@@ -2,13 +2,13 @@ import React from 'react'
 import Profile from './Profile'
 import Display from './Display'
 import Remote from './Remote'
+import device_info from '../utils/device'
 
 function Hero() {
   return (
     <div className='h-10 w-full flex text-white '>
-        <Profile/>
-        <Display/>
-        <Remote/>
+        <Profile />
+        <Display />
     </div>
   )
 }
