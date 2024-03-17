@@ -31,7 +31,7 @@ function Profile() {
         </motion.button>
       </div>
       <div className='border-y-2 h-1 border-slate-950'></div>
-      <div>
+      <div className='flex flex-col gap-1'>
       <motion.button
           whileHover={{
             scale: 1.2,
@@ -39,7 +39,7 @@ function Profile() {
           }}
           whileTap={{ scale: 0.9 }}
           className='border-slate-900 border-2 rounded-lg p-2 flex justify-center gap-2'
-        ><MonitorSmartphone />Device
+        ><MonitorSmartphone />Fan
         </motion.button>
         <motion.button
           whileHover={{
@@ -48,7 +48,7 @@ function Profile() {
           }}
           whileTap={{ scale: 0.9 }}
           className='border-slate-900 border-2 rounded-lg p-2 flex justify-center gap-2'
-        ><MonitorSmartphone />Device
+        ><MonitorSmartphone />Bulb
         </motion.button>
         <motion.button
           whileHover={{
@@ -57,7 +57,7 @@ function Profile() {
           }}
           whileTap={{ scale: 0.9 }}
           className='border-slate-900 border-2 rounded-lg p-2 flex justify-center gap-2'
-        ><MonitorSmartphone />Device
+        ><MonitorSmartphone />LED
         </motion.button>
         <motion.button
           whileHover={{
@@ -65,12 +65,12 @@ function Profile() {
             transition: { duration: 0.1 },
           }}
           whileTap={{ scale: 0.9 }}
-          className='border-slate-900 border-2 rounded-lg p-2 flex justify-center gap-2'
-        ><MonitorSmartphone />Device
+          className='border-[#151922] border-2 rounded-lg p-2 flex justify-center gap-2'
+        ><MonitorSmartphone />AC
         </motion.button>
         
       </div>
-      <div>Developed by</div>
+      <div className='flex h-1/6 items-end justify-center'>Developed by</div>
       
     </div>
   )
