@@ -1,11 +1,10 @@
 import * as api from '../api/index';
-export const createpost=(post)=>async(dispatch)=>{
-    try {
-        dispatch({type:START_LOADING});
-        const {data}=await api.createpost(post);
-        dispatch({type:CREATE_POST,payload:data});
-        dispatch({type:END_LOADING});
+import { STATUS } from '../constants/actions';
+export const status=(id)=>async(dispatch)=>{
+    try{
+        const {res} = api.getDataFromAPI(id);
+        dispatch({ type: STATUS, payload:res});
     } catch (error) {
-        console.log(error.message);
+        console.log(error.message);   
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM  from 'react-dom';
 import {Provider} from 'react-redux';
 import { compose} from 'redux';
+import './index.css';
 
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk'; 
