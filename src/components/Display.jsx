@@ -4,6 +4,8 @@ import devices from "../utils/device"
 import weather from "../assets/weather.png"
 import rate1 from "../assets/rate1.png"
 import rate2 from "../assets/rate2.png"
+import moon from "../assets/moon.png"
+import cloud from "../assets/cloud.png"
 import { motion } from "framer-motion"
 import Remote from './Remote';
 
@@ -53,11 +55,15 @@ function Display() {
 
   return (
     <div className="w-4/5 h-screen flex ">
-      <div className=' w-2/3 p-4 bg-[#000000]'>
-        <div className='relative bg-white'>
-
+      <div className=' relative w-2/3 p-4 bg-[#000000]'>
+        <div className=' h-1/4 flex flex-col items-start justify-end p-4 m-3'>
+        <div className='absolute top-[-110px] left-[-80px] z-1 '>
+            <img src={moon} alt="" className="shadow-moon"/>
         </div>
-        <div className='h-1/4 flex flex-col items-start justify-end p-4 m-3'>
+        <div className='absolute top-[-80px] left-[550px] z-0 '>
+            <img src={cloud} alt="" />
+        </div>
+        
           <div className='my-7'>
               <span className='text-4xl font-semibold'>Welcome, Admins</span>
           </div>
@@ -82,7 +88,7 @@ function Display() {
               <span>Devices connected</span>
               <span className='font-bold text-5xl'>4</span>
             </div>
-            <div className='w-2/3 border-2 rounded-full bg-[#98fb98] flex p-2'>
+            <div className='w-2/3 border-2 rounded-full bg-[#47B300] flex p-2'>
               <div className='pl-4 flex justify-end items-center w-1/3'>
                   <img src={weather} alt="" className='h-[100px] w-[150px] rounded-full border-2'/>
               </div>

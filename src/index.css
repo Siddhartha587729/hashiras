@@ -1,4 +1,7 @@
 @tailwind base;
 @tailwind components;
+.shadow-moon {
+    filter: drop-shadow(0 0 10px yellow) drop-shadow(0 0 20px orange) drop-shadow(0 0 30px red) drop-shadow(0 0 40px pink) drop-shadow(0 0 50px white);
+  }
 @tailwind utilities;
 
