@@ -2,7 +2,7 @@ import React from 'react'
 
 function Remote() {
   return (
-    <div className='w-1/4 bg-[#0c0908de] h-screen p-2'>Remote</div>
+    <div className='w-1/4 bg-[#000000ee] h-screen p-2'>Remote</div>
   )
 }
 
