@@ -10,8 +10,8 @@ function Profile() {
         <img src={home} alt="" className='rounded-xl'/>
       </div>
       <div>
-        <li className='list-none '>
-          <ul>Home</ul>
+        <li className='list-none flex flex-col gap-2 '>
+          <ul className='flex gap-1 border-2 '>Home</ul>
           <ul>Devices</ul>
         </li>
       </div>
