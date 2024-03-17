@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Cloud } from 'lucide-react';
 import devices from "../utils/device"
 import weather from "../assets/weather.png"
+import rate1 from "../assets/rate1.png"
+import rate2 from "../assets/rate2.png"
 import { motion } from "framer-motion"
 import Remote from './Remote';
 
@@ -9,9 +11,8 @@ import Remote from './Remote';
 function Display() {
   const [currentDate, setCurrentDate] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [selectedDevice, setSelectedDevice] = useState(null);
-  console.log(devices)
-  const city = 'ranchi'; // Define the city here
+  const [selectedDevice, setSelectedDevice] = useState('');
+  const city = 'ranchi'; 
 
   useEffect(() => {
     const fetchDate = () => {
@@ -58,7 +59,7 @@ function Display() {
         </div>
         <div className='h-1/4 flex flex-col items-start justify-end p-4 m-3'>
           <div className='my-7'>
-              <span className='text-4xl font-semibold'>Welcome Admins</span>
+              <span className='text-4xl font-semibold'>Welcome, Admins</span>
           </div>
           <div className='flex gap-2'>
             <Cloud />Date: {currentDate}
@@ -98,8 +99,6 @@ function Display() {
                       <div className='text-5xl'>{weatherData.temp}∘</div>
 
                     </div>
-                    {/* <span>Weather: {weatherData.sunrise}</span>
-                    <span>Temperature: {weatherData.temp}</span> */}
                   </div>
                 )}
                 {!weatherData && <span>Loading weather data...</span>}
@@ -112,22 +111,24 @@ function Display() {
           <span className=' text-lg pb-5'>Devices</span>
           <div className='pt-5 flex gap-1'>
             {devices.map((device, index) => (
-              <motion.div key={index} className="bg-black w-1/2 p-4 rounded-lg border-2 h-[200px] " 
+              <motion.div onClick={()=>setSelectedDevice(device)} key={index} className="bg-red-500 w-1/2 p-4 rounded-lg border-2 h-[200px] " 
               whileHover={{
                 scale: 1.1,
                 transition: { duration: 0.1 },
               }}
               whileTap={{ scale: 0.9 }}>
-                <h2 onClick={()=>setSelectedDevice(device)} className="text-lg font-semibold">{device.device}</h2>
-                {/* <p>{device.description}</p> */}
-                {/* Add more details as needed */}
+                <div className='flex items-center '>
+                  <device.ic size={40} className='border-2 p-1 h-12 w-12 rounded-full'/>
+                </div>
+                <h2 className="pt-4 px-1 text-3xl">{device.device}</h2>
+                <img src={rate2} alt="" height={50} />
               </motion.div>
             ))}
           </div>
         </div>
       </div>
       <div className=' w-1/3 bg-[#000000ee] h-screen p-2 '>
-          {selectedDevice && <Remote device={selectedDevice} />}
+          <Remote device={selectedDevice}/>
       </div>
     </div>
   );
