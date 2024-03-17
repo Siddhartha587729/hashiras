@@ -4,7 +4,7 @@ import home from "../assets/home.jpg"
 import hashira from "../assets/hashira.jpg"
 import { motion } from "framer-motion"
 
-function Profile() {
+function Profile({data}) {
   return (
     <div className=' w-1/5 bg-[#000000ee] h-screen p-4 py-10 flex flex-col gap-5'>
       <div className='flex items-center gap-4 '>

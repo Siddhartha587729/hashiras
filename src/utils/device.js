@@ -1,8 +1,11 @@
+import { getDataFromAPI } from "../api";
+const data=await getDataFromAPI();
+
 const devices = [
     {
       teamid: "8nCa1hq",
       device: "Fan",
-      value: 1
+      value: 0
     },
     {
       teamid: "8nCa1hq",

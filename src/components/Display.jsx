@@ -3,11 +3,13 @@ import { Cloud } from 'lucide-react';
 import devices from "../utils/device"
 import weather from "../assets/weather.png"
 import { motion } from "framer-motion"
+import Remote from './Remote';
 
 
 function Display() {
   const [currentDate, setCurrentDate] = useState('');
   const [weatherData, setWeatherData] = useState(null);
+  const [selectedDevice, setSelectedDevice] = useState(null);
   const city = 'ranchi'; // Define the city here
 
   useEffect(() => {
@@ -16,7 +18,6 @@ function Display() {
       const formattedDate = `${dateObj.getDate()} ${getMonthName(dateObj.getMonth())} ${dateObj.getFullYear()}`;
       setCurrentDate(formattedDate);
     };
-
     const fetchWeatherData = async () => {
       try {
         const response = await fetch(`https://api.api-ninjas.com/v1/weather?city=${city}`, {
@@ -38,10 +39,8 @@ function Display() {
     fetchWeatherData();
 
     const intervalId = setInterval(fetchDate, 1000); 
-
     return () => clearInterval(intervalId); 
-  }, [city]); // Make sure to include city in the dependency array
-
+  }, [city],[selectedDevice]); // Make sure to include city in the dependency array
   const getMonthName = (monthIndex) => {
     const months = [
       'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
