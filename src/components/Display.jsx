@@ -7,9 +7,10 @@ import Remote from './Remote';
 
 
 function Display() {
-  const [currentDate, setCurrentDate] = useState('');
+  const [currentDate, setCurrentDate] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [selectedDevice, setSelectedDevice] = useState(null);
+  console.log(devices)
   const city = 'ranchi'; // Define the city here
 
   useEffect(() => {
@@ -40,7 +41,7 @@ function Display() {
 
     const intervalId = setInterval(fetchDate, 1000); 
     return () => clearInterval(intervalId); 
-  }, [city],[selectedDevice]); // Make sure to include city in the dependency array
+  }, [city]); // Make sure to include city in the dependency array
   const getMonthName = (monthIndex) => {
     const months = [
       'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -52,6 +53,9 @@ function Display() {
   return (
     <div className="w-4/5 h-screen flex ">
       <div className=' w-2/3 p-4 bg-[#000000]'>
+        <div className='relative bg-white'>
+
+        </div>
         <div className='h-1/4 flex flex-col items-start justify-end p-4 m-3'>
           <div className='my-7'>
               <span className='text-4xl font-semibold'>Welcome Admins</span>
@@ -114,8 +118,8 @@ function Display() {
                 transition: { duration: 0.1 },
               }}
               whileTap={{ scale: 0.9 }}>
-                <h2 className="text-lg font-semibold">{device.device}</h2>
-                <p>{device.description}</p>
+                <h2 onClick={()=>setSelectedDevice(device)} className="text-lg font-semibold">{device.device}</h2>
+                {/* <p>{device.description}</p> */}
                 {/* Add more details as needed */}
               </motion.div>
             ))}
@@ -123,7 +127,7 @@ function Display() {
         </div>
       </div>
       <div className=' w-1/3 bg-[#000000ee] h-screen p-2 '>
-          hi
+          {selectedDevice && <Remote device={selectedDevice} />}
       </div>
     </div>
   );

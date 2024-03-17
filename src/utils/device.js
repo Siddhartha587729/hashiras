@@ -1,6 +1,3 @@
-import { getDataFromAPI } from "../api";
-const data=await getDataFromAPI();
-
 const devices = [
     {
       teamid: "8nCa1hq",
