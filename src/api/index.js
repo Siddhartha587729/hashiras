@@ -1,8 +1,12 @@
 import axios from 'axios';
-import { STATUS } from '../constants/actions';
-const API = axios.create({baseURL: 'https://65f6f0cfb4f842e80884d8ff.mockapi.io/devices2/'});
+import { STATUS, UPDATE } from '../constants/actions';
+const API = axios.create({baseURL: 'https://kodessphere-api.vercel.app'});
 export const fetchstatus = ()=>async(dispatch)=>{
-    const res =await API.get('/device2')
+    const res =await API.get('/devices/:id')
     dispatch({type:STATUS,payload:res.data})
 }
-export const devices=(body)=>API.post('/devices');
+
+export const update=(data)=>async(dispatch)=>{
+    const res = await APT.post('/devices',data)
+    dispatch({type:UPDATE,payload:res.data})
+}
