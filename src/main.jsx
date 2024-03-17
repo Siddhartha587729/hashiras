@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM  from 'react-dom';
 import {Provider} from 'react-redux';
-import { compose} from 'redux';
 import './index.css'
 import './index.css';
 
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore,applyMiddleware,compose } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk'; 
 import reducers from './reducers';
-import App from './App.jsx';
+import App from './App';
 
 const store = configureStore({
     reducer:reducers,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk)
+    middleware:[thunk]
 });
 
 ReactDOM.render(

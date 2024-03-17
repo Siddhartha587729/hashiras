@@ -1,9 +1,10 @@
-import {STATUS} from '../constants/actions';
+import {STATUS, UPDATE} from '../constants/actions';
 export default(state={data:[]},action)=>{
     switch(action.type){
         case STATUS:
-            console.log(state.data);
             return {...state,data:action.payload}
+        case UPDATE :
+            return {}       
         default:
             return state;
     }

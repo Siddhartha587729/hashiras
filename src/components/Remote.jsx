@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 function Remote({device}) {
+
   const [data,setData]=useState('');
   const [value,setValue]=useState(0);
+
   useEffect(()=>{
     setData(device);
     setValue(device.value)

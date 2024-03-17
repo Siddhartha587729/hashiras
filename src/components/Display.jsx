@@ -9,7 +9,7 @@ import Remote from './Remote';
 
 
 function Display() {
-  const [currentDate, setCurrentDate] = useState('');
+  const [currentDate, setCurrentDate] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [selectedDevice, setSelectedDevice] = useState('');
   const city = 'ranchi'; 
@@ -42,7 +42,7 @@ function Display() {
 
     const intervalId = setInterval(fetchDate, 1000); 
     return () => clearInterval(intervalId); 
-  }, [city],[selectedDevice]); // Make sure to include city in the dependency array
+  }, [city]); // Make sure to include city in the dependency array
   const getMonthName = (monthIndex) => {
     const months = [
       'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -54,6 +54,9 @@ function Display() {
   return (
     <div className="w-4/5 h-screen flex ">
       <div className=' w-2/3 p-4 bg-[#000000]'>
+        <div className='relative bg-white'>
+
+        </div>
         <div className='h-1/4 flex flex-col items-start justify-end p-4 m-3'>
           <div className='my-7'>
               <span className='text-4xl font-semibold'>Welcome, Admins</span>
