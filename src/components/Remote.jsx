@@ -6,13 +6,18 @@ function Remote({ device }) {
   const [data, setData] = useState('');
   const [value, setValue] = useState(0);
   const [color, setColor] = useState('#FFFFFF'); 
-  const [data, setData] = useState(device);
+  // const [data, setData] = useState(device[0]);
   const dispatch = useDispatch()
 
   useEffect(() => {
     setData(device);
     dispatch(update())
   }, [device,dispatch]);
+
+
+  const handleColorChange = (newColor) => {
+    setColor(newColor);
+  }
 
   const decreaseValue = () => {
     if (data.value > 0) {
@@ -90,6 +95,11 @@ function Remote({ device }) {
     <div onClick={decreaseValue_ac} className="my-10 w-12 h-12 border-2 bg-white rounded-full flex items-center justify-center text-black font-semibold text-3xl hover:cursor-pointer">-</div>
       <div onClick={increaseValue_ac} className="my-10 w-12 h-12 border-2 bg-white rounded-full flex items-center justify-center text-black text-3xl font-semibold hover:cursor-pointer">+</div>
     </div>
+    {data.device === 'LED' && (
+        <div className="">
+          <ColorPicker color={color} onChange={handleColorChange} />
+        </div>
+      )}
   </div>
 )}
 
