@@ -14,7 +14,7 @@ function Display() {
   const [currentDate, setCurrentDate] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [selectedDevice, setSelectedDevice] = useState('');
-  const city = 'ranchi'; 
+  const city = 'bhubaneswar'; 
 
   useEffect(() => {
     const fetchDate = () => {
