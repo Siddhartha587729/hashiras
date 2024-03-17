@@ -8,15 +8,19 @@ import moon from "../assets/moon.png"
 import cloud from "../assets/cloud.png"
 import { motion } from "framer-motion"
 import Remote from './Remote';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function Display() {
+
   const [currentDate, setCurrentDate] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [selectedDevice, setSelectedDevice] = useState('');
-  const city = 'bhubaneswar'; 
-
-  useEffect(() => {
+  const [selectedDevice, setSelectedDevice] = useState(devices[0]);
+  const city = 'bhubaneswar';
+  const dispatch = useDispatch();
+  const device2 = useSelector((state)=>state.res)
+  console.log(device2);
+  useEffect(() => { 
     const fetchDate = () => {
       const dateObj = new Date();
       const formattedDate = `${dateObj.getDate()} ${getMonthName(dateObj.getMonth())} ${dateObj.getFullYear()}`;
@@ -44,7 +48,7 @@ function Display() {
 
     const intervalId = setInterval(fetchDate, 1000); 
     return () => clearInterval(intervalId); 
-  }, [city]); // Make sure to include city in the dependency array
+  }, [city,dispatch]); // Make sure to include city in the dependency array
   const getMonthName = (monthIndex) => {
     const months = [
       'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
