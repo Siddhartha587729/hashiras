@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { update } from '../api';
 
-function Remote({device}) {
+function Remote({ device }) {
+  const [data, setData] = useState('');
+  const [value, setValue] = useState(0);
+  const [color, setColor] = useState('#FFFFFF'); 
   const [data, setData] = useState(device);
   const dispatch = useDispatch()
 
@@ -106,7 +109,17 @@ function Remote({device}) {
     //     </div>
     // </div> */}
     </>
-  )
+  );
 }
 
-export default Remote
+function ColorPicker({ color, onChange }) {
+  return (
+    <input
+      type="color"
+      value={color}
+      onChange={(e) => onChange(e.target.value)}
+    />
+  );
+}
+
+export default Remote;

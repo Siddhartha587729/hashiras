@@ -8,10 +8,9 @@ const PreLoader = () => {
   }, []);
   return (
     <div className="preloader">
-      <div className="texts-container">
-        <span>Welcome,</span>
-        <span>Admins.</span>
-        <span></span>
+      <div className="texts-container flex flex-col">
+        <span>Welcome, Admins.</span>
+        <span className="text-sm">Best viewed at 80% zoom</span>
       </div>
     </div>
   );
