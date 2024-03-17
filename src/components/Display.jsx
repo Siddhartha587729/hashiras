@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Cloud } from 'lucide-react';
 import devices from "../utils/device"
+import weather from "../assets/weather.png"
 import { motion } from "framer-motion"
 
 
@@ -50,8 +51,8 @@ function Display() {
   };
 
   return (
-    <div className="w-3/4 bg-[#000000] h-screen flex ">
-      <div className=' w-2/3 p-4'>
+    <div className="w-4/5 h-screen flex ">
+      <div className=' w-2/3 p-4 bg-[#000000]'>
         <div className='h-1/4 flex flex-col items-start justify-end p-4 m-3'>
           <div className='my-7'>
               <span className='text-4xl font-semibold'>Welcome Admins</span>
@@ -77,7 +78,30 @@ function Display() {
               <span>Devices connected</span>
               <span className='font-bold text-5xl'>4</span>
             </div>
-            <div className='w-2/3 border-2 rounded-full bg-[#98fb98]'></div>
+            <div className='w-2/3 border-2 rounded-full bg-[#98fb98] flex p-2'>
+              <div className='pl-4 flex justify-end items-center w-1/3'>
+                  <img src={weather} alt="" className='h-[100px] w-[150px] rounded-full border-2'/>
+              </div>
+              <div className='h-[110px] w-2/3 px-4 '>
+                {weatherData && (
+                  <div className='h-[110px] flex gap-4'>
+                    <div className='flex flex-col'>
+                      <div className=' h-1/2 text-4xl'>
+                        Temperature
+                      </div>
+                      <div className='h-1/2 flex items-end '>Wind : {weatherData.wind_speed} km/h</div>
+                    </div>
+                    <div className='flex items-center'>
+                      <div className='text-5xl'>{weatherData.temp}∘</div>
+
+                    </div>
+                    {/* <span>Weather: {weatherData.sunrise}</span>
+                    <span>Temperature: {weatherData.temp}</span> */}
+                  </div>
+                )}
+                {!weatherData && <span>Loading weather data...</span>}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -99,7 +123,7 @@ function Display() {
           </div>
         </div>
       </div>
-      <div className='w-1/3 bg-[#000000e4] h-screen p-2 '>
+      <div className=' w-1/3 bg-[#000000ee] h-screen p-2 '>
           hi
       </div>
     </div>

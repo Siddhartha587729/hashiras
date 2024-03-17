@@ -2,12 +2,13 @@ import React from 'react'
 import Profile from './Profile'
 import Display from './Display'
 import Remote from './Remote'
+import StarsCanvas from './Star'
 
 function Hero() {
   return (
     <div className='h-10 w-full flex text-white '>
         <Profile/>
-        <Display/>
+          <Display/>
     </div>
   )
 }
