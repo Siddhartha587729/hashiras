@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 function Profile() {
   return (
-    <div className=' w-1/4 bg-[#000000ee] h-screen p-4 py-10 flex flex-col gap-5'>
+    <div className=' w-1/5 bg-[#000000ee] h-screen p-4 py-10 flex flex-col gap-5'>
       <div className='flex items-center gap-4 '>
         <WashingMachine color="white" size={40}/>
         <span className='text-lg font-semibold'>
